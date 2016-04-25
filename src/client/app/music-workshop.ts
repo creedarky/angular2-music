@@ -1,5 +1,6 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
+import {AlbumsPageComponent} from './albums-page/index'
 
 @Component({
   moduleId: __moduleName,
@@ -7,7 +8,7 @@ import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router'
   providers: [ROUTER_PROVIDERS],
   templateUrl: 'music-workshop.html',
   styleUrls: ['music-workshop.css'],
-  directives: [ROUTER_DIRECTIVES],
+  directives: [ROUTER_DIRECTIVES, AlbumsPageComponent],
   pipes: []
 })
 @RouteConfig([
