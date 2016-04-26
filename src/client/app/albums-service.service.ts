@@ -1,6 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Http} from 'angular2/http';
 import 'rxjs/add/operator/map';
+import {Observable} from "rxjs/Rx";
 
 
 
@@ -16,8 +17,9 @@ export class AlbumsService {
   }
 
   getAlbum(id) {
-    return this.http.get(`api/albums/${id}`)
-      .map(res => res.json())
-    
+    return Observable.forkJoin(
+      this.http.get(`api/albums/${id}`).map(res => res.json().album),
+      this.http.get(`api/albums/${id}/tracks`).map(res => res.json().tracks)
+    )
   }
 }

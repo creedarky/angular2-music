@@ -2,10 +2,12 @@
 <div class="media">
   <!-- [] = one way binding  -->
   <!-- () = action from the view to the component -->
-  <figure>
-    <img [alt]="album.name" [title]="album.name" class="album" [src]="album.image" (click)="doClick()">
-    <figcaption>{{ album.name }}</figcaption>
-  </figure>
+  <a [routerLink]="['/TracksPage', {id: album.id}]">
+    <figure>
+      <img [alt]="album.name" [title]="album.name" class="album" [src]="album.image" (click)="doClick()">
+      <figcaption>{{ album.name }}</figcaption>
+    </figure>
+  </a>
 
 </div>
 <!-- </album-cover> -->

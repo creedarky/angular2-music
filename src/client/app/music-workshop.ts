@@ -2,6 +2,7 @@ import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http';
 import {AlbumsPageComponent} from './albums-page/index'
+import {TracksPageComponent} from "./tracks-page/tracks-page.component";
 
 @Component({
   moduleId: __moduleName,
@@ -14,6 +15,7 @@ import {AlbumsPageComponent} from './albums-page/index'
 })
 @RouteConfig([
   {path: '/', component: AlbumsPageComponent, name:'AlbumsPage'},
+  {path: '/:id', component: TracksPageComponent, name:'TracksPage'},
 ])
 export class MusicWorkshopApp {
   defaultMeaning: number = 42;
