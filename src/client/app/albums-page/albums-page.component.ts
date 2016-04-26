@@ -1,23 +1,24 @@
 import {Component, OnInit} from 'angular2/core';
 import {HTTP_PROVIDERS, Http} from 'angular2/http';
 import {AlbumCoverComponent} from '../album-cover/index'
+import {AlbumsService} from '../albums-service.service'
 
 @Component({
   moduleId: __moduleName,
   selector: 'albums-page',
   templateUrl: 'albums-page.component.html',
   styleUrls: ['albums-page.component.css'],
-  providers: [HTTP_PROVIDERS],
+  providers: [HTTP_PROVIDERS, AlbumsService],
   directives: [AlbumCoverComponent],
 })
 export class AlbumsPageComponent implements OnInit {
   albums: any;
 
-  constructor(_http: Http) {
+  constructor(private _albumsService: AlbumsService) {
     //observable vs promises
-    _http.get('api/albums').subscribe(response => {
-      this.albums = response.json().albums
-    })
+    _albumsService.getAllAlbums().subscribe(albums => {
+      this.albums = albums
+    });
   }
 
   ngOnInit() {

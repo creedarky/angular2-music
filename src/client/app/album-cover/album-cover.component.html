@@ -2,6 +2,10 @@
 <div class="media">
   <!-- [] = one way binding  -->
   <!-- () = action from the view to the component -->
-  <img [alt]="album.name" [title]="album.name" class="album" [src]="album.image" (click)="doClick()">
+  <figure>
+    <img [alt]="album.name" [title]="album.name" class="album" [src]="album.image" (click)="doClick()">
+    <figcaption>{{ album.name }}</figcaption>
+  </figure>
+
 </div>
 <!-- </album-cover> -->

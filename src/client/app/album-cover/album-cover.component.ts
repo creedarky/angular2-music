@@ -20,7 +20,7 @@ export class AlbumCoverComponent implements OnInit {
   }
 
   doClick() {
-    this.album.name = 'Ramoesasdf';
+    this.album.name = `${this.album.name} clicked`;
   }
 
 }
